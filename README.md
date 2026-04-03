@@ -1,7 +1,7 @@
 
 # Ejercicios pa salvar el certamen de intro!!
 
-Buenas cabros, armé este apunte con ejercicios de la guía del profe porque vi que varios tenían dudas. Le puse comentarios al código línea por línea pa que se entienda **qué hace cada cosa**, en vez de copiarlo a ciegas.
+Buenas cabros, armé este apunte con ejercicios de la guía del profe porque vi que varios estaban perdidos. Le puse comentarios al código línea por línea pa que se entienda **qué hace cada cosa**, en vez de copiarlo a ciegas.
 
 La idea es que lean los comentarios y traten de cachar la lógica de por qué está cada cosa ahí. Si hacen eso, deberían andar bien en la prueba.
 
