@@ -1,8 +1,8 @@
-# Ejercicios pa salvar el certamen de intro!!
+# Apuntes intro a la programación!!
 
-Buenas cabros, armé este apunte con los ejercicios típicos. Le puse comentarios al código para que se entienda **qué hace cada cosa** y no copien a ciegas. 
+Este apunte contiene ejercicios introductorios de Python. El código incluye comentarios explicativos para ayudar a comprender **qué hace cada línea**. 
 
-La idea es que entiendan la lógica. Agregué también explicaciones cortitas de lo más básico para que todos partamos de la misma base.
+El objetivo es desarrollar la lógica de programación. Se incluyen además explicaciones breves de los conceptos fundamentales.
 
 ---
 
@@ -23,7 +23,7 @@ Dependiendo de qué guardes, es el **tipo** de dato:
 
 ---
 
-## 2. El `=` vs el `==` (Error típico)
+## 2. El `=` vs el `==` (Error clásico)
 
 *   Un solo igual `=` es para **GUARDAR** o **ASIGNAR**.
     `nota = 7.0` (Guardo el 7.0 en la variable nota).
@@ -45,19 +45,19 @@ Sirven para que el programa tome caminos distintos según qué pase:
 nota = float(input("¿Que nota te sacaste? "))
 
 if nota >= 6.0:  # Ojo con los dos puntos al final (:)
-    print("¡Buena, te pasaste!")
+    print("Aprobaste!")
 elif nota >= 4.0:
     print("Salvaste el ramo.")
 else:
-    print("¡F, a seguir estudiando!")
+    print("Reprobaste!")
 ```
-**Algo MUY importante:** Fíjense que adentro del `if` hay un espacio vacío antes del `print` (se llama **indentación**, que se hace con la tecla Tabulador). Ese espacio le dice al programa *"oye, este print va adentro del if"*. Si no lo ponen, les dará un `IndentationError`.
+**Algo MUY importante:** Fíjense que adentro del `if` hay un espacio vacío antes del `print` (se llama **indentación**, que se hace con la tecla Tabulador). Ese espacio le dice al programa *"este print va adentro del if"*. Si no lo ponen, les dará un `IndentationError`.
 
 ---
 
 ## 4. Obligar a poner bien la nota (el ciclo `while`)
 
-Un ciclo `while` repite código. Acá lo usamos para decir: *"mientras la nota esté mala, sigo preguntando"*.
+Un ciclo `while` repite una porción de código. Aquí lo usamos para indicar: *"mientras la nota sea inválida, volver a preguntar"*.
 
 ```python
 # iniciamos con una nota mala a proposito para forzar que entre al while
@@ -66,13 +66,13 @@ nota = -1.0
 # "mientras la nota sea menor a 1.0 o (or) mayor a 7.0 haz esto..."
 while nota < 1.0 or nota > 7.0:
     
-    nota = float(input("pon tu nota aca (entre 1.0 y 7.0): "))
+    nota = float(input("Ingrese su nota (entre 1.0 y 7.0): "))
     
     # si la nota esta mala, le avisamos antes de repetir
     if nota < 1.0 or nota > 7.0:
-        print("nota invalida, intentelo de nuevo")
+        print("Nota inválida, inténtelo de nuevo.")
 
-print("nota ingresada :)", nota)
+print("Nota ingresada correctamente:", nota)
 ```
 
 ---
@@ -85,7 +85,7 @@ Acá usamos el `%` (módulo), que te da el resto de una división. Si al dividir
 
 ```python
 # le preguntamos al usuario hasta donde llegar
-limite = int(input("hasta que numero revisamos?: "))
+limite = int(input("¿Hasta qué número revisamos?: "))
 
 # contador de números pares (parte en 0)
 pares = 0
@@ -97,7 +97,7 @@ for i in range(1, limite + 1):
     if i % 2 == 0:
         pares += 1  # le sumamos 1 al contador
         
-print(f"del 1 al {limite} pillamos {pares} numeros pares")
+print(f"Del 1 al {limite} encontramos {pares} números pares.")
 ```
 
 ---
@@ -117,32 +117,58 @@ while opcion != 3:
     print("2. Meter plata")
     print("3. Retirarse")
     
-    opcion = int(input("elige que vas a hacer y pon un numero: "))
+    opcion = int(input("Elige una opción (1-3): "))
     
     if opcion == 1:
-        cuanto = int(input("cuanto quieres?: "))
+        cuanto = int(input("¿Cuánto dinero desea retirar?: "))
         
         # revisamos si alcanza el saldo
         if cuanto > saldo:
-            print("estay pato, no tienes plata suficiente")
+            print("Saldo insuficiente.")
         else:
             saldo -= cuanto
-            print("listo, te desconte la plata. saldo actual:", saldo)
+            print("Retiro exitoso. Saldo actual:", saldo)
             
     elif opcion == 2:
-        cuanto = int(input("cuanto vay a meter?: "))
+        cuanto = int(input("¿Cuánto dinero desea depositar?: "))
         saldo += cuanto
-        print("buena, tu saldo ahora esta en:", saldo)
+        print("Depósito exitoso. Tu saldo ahora es:", saldo)
         
     elif opcion == 3:
-        print("nos vemooos cuidese")
+        print("Saliendo del sistema...")
         
     else:
-        print("opcion mala! lee el menu porfa")
+        print("Opción inválida. Intente nuevamente.")
 ```
 
-Ya ps cabros, léanlo, ejecuten los códigos ustedes mismos en su compu y prueben romperlos borrándole un tab o una letra.
+---
 
-Y si ya se sienten listos, **abran el archivo `exercices.py`**. Ahí hay una mini guía de repaso con ejercicios en blanco para que  escriban código desde cero. 
+## 7. Los for anidados (un for adentro de otro)
 
-Mucho éxito en el solemne!
+Un "for anidado" es simplemente meter un ciclo `for` adentro de otro. 
+Esto nos sirve mucho cuando queremos revisar cosas en 2 dimensiones, como **filas y columnas** de una tabla o hacer un patrón en pantalla.
+
+El truco para entenderlo es: **por CADA vuelta que da el `for` de afuera, el `for` de adentro da TODAS sus vueltas completas.**
+
+```python
+# Ejemplo: Las tablas de multiplicar (del 1 al 3)
+
+# El for "de afuera" escoge qué tabla vamos a ver
+for tabla in range(1, 4):
+    print(f"=== Tabla del {tabla} ===")
+    
+    # El for "de adentro" hace la multiplicacion del 1 al 5
+    for numero in range(1, 6):
+        resultado = tabla * numero
+        print(f"{tabla} x {numero} = {resultado}")
+        
+    # Fíjate que este print vacío está fuera del for de "adentro", 
+    # pero adentro del for de "afuera"
+    print("") # Un salto de línea para separar cada tabla
+```
+
+Se recomienda leer y ejecutar estos códigos en su propio entorno. Una buena práctica es intentar modificar el código para ver cómo reacciona y qué errores aparecen.
+
+Si ya se sienten listos, **abran el archivo `exercices.py`**. Allí encontrarán una guía de repaso con ejercicios para practicar la escritura de código desde cero. 
+
+¡Mucho éxito en la evaluación!
