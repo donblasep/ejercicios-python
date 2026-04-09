@@ -56,7 +56,7 @@ print("Adivinaste el numero secreto en", intentos, "intentos")
 ```
 
 ## 5. Ciclo `for` y Función Módulo (`%`)
-Útil cuando sabes cuántas veces repetir. `%` saca el resto.
+Útil cuando sabes cuántas veces repetir. `%` saca el resto de una división.
 ```python
 num = 10
 pares = 0
