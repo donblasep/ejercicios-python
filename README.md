@@ -167,8 +167,11 @@ for tabla in range(1, 4):
     print("") # Un salto de línea para separar cada tabla
 ```
 
-Se recomienda leer y ejecutar estos códigos en su propio entorno. Una buena práctica es intentar modificar el código para ver cómo reacciona y qué errores aparecen.
+Se recomienda leer y ejecutar estos códigos en su propio compu. Una buena práctica es intentar modificar el código para ver cómo reacciona y qué errores aparecen.
 
 Si ya se sienten listos, **abran el archivo `exercices.py`**. Allí encontrarán una guía de repaso con ejercicios para practicar la escritura de código desde cero. 
 
-¡Mucho éxito en la evaluación!
+Mucho éxito en la evaluación!
+
+---
+💡 **¿A punto de dar la prueba?** Revisa nuestro apunte resumen: [Torpedo del Certamen](torpedo_certamen.md)
